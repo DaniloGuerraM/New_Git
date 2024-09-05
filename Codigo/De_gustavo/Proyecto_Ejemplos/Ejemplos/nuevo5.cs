@@ -1,0 +1,12 @@
+﻿int NUM, AUX, DEC, UNI, CEN;
+string linea;
+Console.WriteLine("ingrese numero de 3 sifras");
+linea = Console.ReadLine();
+NOM = int.parce(linea);
+CEN = NUM / 100;
+NUM = NUM % 100;
+DEC = NUM/100;
+UNI = NUM % 100;
+AUX = (UNI * 100) + (DEC*10) + CEN;
+Console.WriteLine("NÚMERO INVERTIDO ES: " + AUX);
+Console.WriteLine("Pulse una Tecla:"); Console.ReadLine();

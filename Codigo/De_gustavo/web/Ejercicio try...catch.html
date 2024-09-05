@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script>
+            function Ej1()
+            {
+                
+
+                try {
+                    const miObjeto = { nombre: "Juan", edad: 30 };
+                    alert(miObjeto.apellido); // Intentamos acceder a una propiedad inexistente
+                } catch (error) {
+                    alert(`Error: ${error.message}`);
+                }
+            }
+            function Ej2()
+            {
+                try {
+                    const jsonString = '{"nombre": "Ana", "edad": 25 , "hola"}';
+                    const objeto = JSON.parse(jsonString);
+                    console.log(objeto.apellido);
+                } catch (error) {
+                    alert(`Error al analizar el JSON: ${error.message}`);
+                }
+            }
+            function Ej3()
+            {
+                try {
+                    // Simulamos la lectura de un archivo
+                    throw new Error("El archivo no existe.");
+                } catch (error) {
+                    alert(`Error al leer el archivo: ${error.message}`);
+                }
+            }
+
+            //Ej3("miarchivo.txt");
+
+        </script>
+    </head>
+    <body>
+        <button style="font-size: 100;" onclick="Ej1();">
+            Ej 1
+        </button>
+        <br/>
+        <button style="font-size: 100;" onclick="Ej2();">
+            Ej 2
+        </button>
+        <br/>
+        <button style="font-size: 100;" onclick="Ej3();">
+            Ej 3
+        </button>
+    </body>
+</html>

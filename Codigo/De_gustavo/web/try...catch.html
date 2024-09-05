@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <script>
+            function sinError(){
+                let json = '{"name":"John", "age": 30}'; // datos del servidor
+                let user = JSON.parse(json); // convierte la representación de texto a objeto JS
+
+                // ahora user es un objeto con propiedades de la cadena
+                alert( user.name ); // John
+                alert( user.age );  // 30
+            }
+            function errors(){
+                let json = '{esta malo}'
+                try {
+                    let user = JSON.parse(json);
+                    alert(user.name);
+                    
+                } catch (error) {
+                    //alert(error);
+                    alert("aca esta el error");
+                }
+            }
+            function errors2(){
+                let error = new Error("Estas cosas pasan... o_O");
+
+                alert(error.name); // Error
+                alert(error.message); // Estas cosas pasan... o_O
+            }
+            function errors3(){
+                try {
+                    JSON.parse("{ json malo o_O }");
+                } catch (err) {
+                    alert(err.name); // SyntaxError
+                    alert(err.message); // Token b inesperado en JSON en la posición 2
+                }
+            }
+            function errors4(){
+                try {
+                    throw new Error("Este es un error personalizado");
+                } catch (err) {
+                    alert("Se ha producido un error:");
+                    alert(err.message);
+                    // Relanzar el error para que otros bloques puedan manejarlo
+                    throw err;
+                } finally {
+                    // Código que se ejecutará independientemente del resultado del bloque try
+                    alert("Este bloque siempre se ejecuta");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button id="button" onclick="sinError();">
+            sin error
+        </button>
+        <button id="button" onclick="errors();">
+            error1
+        </button>
+        <button id="button" onclick="errors2();">
+            error2
+        </button>
+        <button id="button" onclick="errors3();">
+            error3
+        </button>
+        <button id="button" onclick="errors4();">
+            error4
+        </button>
+
+    </body>
+</html>

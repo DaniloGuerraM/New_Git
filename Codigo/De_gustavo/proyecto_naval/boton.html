@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón con tamaños</title>
+    <style>
+        .boton {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .grande {
+            font-size: 12px;
+        }
+        .mediano {
+            font-size: 12px;
+        }
+        .chico {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <button id="miBoton" class="boton mediano" onclick="cambiarTamaño()">Seleccione tamaño</button>
+    <select id="selectorTamaño" >
+        <option value="grande">Grande</option>
+        <option value="mediano">Mediano</option>
+        <option value="chico">Chico</option>
+    </select>
+
+    <script>
+        function cambiarTamaño() {
+            const boton = document.getElementById('miBoton');
+            const selector = document.getElementById('selectorTamaño');
+            const tamañoSeleccionado = selector.value;
+
+            boton.classList.remove('grande', 'mediano', 'chico');
+            boton.classList.add(tamañoSeleccionado);
+
+            // Cambiar el texto del botón para reflejar la selección
+            boton.textContent = `Tamaño seleccionado: ${tamañoSeleccionado.charAt(0).toUpperCase() + tamañoSeleccionado.slice(1)}`;
+        }
+    </script>
+</body>
+</html>

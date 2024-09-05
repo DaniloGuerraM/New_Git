@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            p{
+                font-family: Georgia;
+                font-size: 20px;
+            }
+            button{
+                font-family: times new roman;
+                font-size: 20px;
+            }
+            #spanNombreCompleto{
+                color: red;
+            }
+          
+            .estiloTextBox{
+                font-family: verdana;
+                font-size: 18px;
+                font-weight: 2px;
+                color: tomato;
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Hola > <span id="spanNombreCompleto"> Nombre, Apellido </span>
+        </h1>
+        <p>
+            Ingresar nombre : <input class="estiloTextBox" id="inputNombre">
+        </p>
+        <p>
+        Ingresar apellido : <input class="estiloTextBox" id="inputApellido">
+        </p>
+        <button id="buttonPrecionar" onclick="buttonPrecionarClick();">
+            Precionar 
+        </button>
+        <script>
+            function buttonPrecionarClick(){
+                var nombre = document.getElementById("inputNombre").value;
+                var apellido = document.getElementById("inputApellido").value;
+                //alert(nombre);
+                //alert(apellido);
+
+                var componenteSpan = document.getElementById("spanNombreCompleto");
+                componenteSpan.innerText = apellido + ", " + nombre;
+            }
+        </script>
+    </body>
+</html>

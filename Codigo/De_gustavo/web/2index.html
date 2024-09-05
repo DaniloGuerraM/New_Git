@@ -1,0 +1,116 @@
+<html><!-- esta es la cabesera, es muy importante-->
+	
+	<!--dentro de esta etiqueta va informacion que el usuario no puede ver-->
+	<head>
+		
+		<!--asi se pone el titulo en la pestaña -->
+		<title>Titulo de nuestra primera web</title>
+		<!-- nos permite enlasar codigo css y javascript  -->
+		<!-- ejemplo: <link rel="stylesheet" href="estilos.css"> -->
+
+		<!-- sirve para cambiar el icono de la pestaña -->
+		<link rel="shortcut icon" type="imagen/x-icon" href="Imagenes/x_icon.jpg">
+	</head>
+	
+	<!--esta etiqueta va a contener todo en el documento, este si se va a ver -->
+	<body>
+		<!-- este link nos permite enlasar archivos -->
+		<!-- ejemplo: <script src="archivo.js"></script> -->
+
+		<!--h1, h2, h3, h4, h5 y h6 sirven para diferentes tamaño de titulo-->
+		<h1> Titlo de nuestro documento</h1>
+		
+		<!--esta etiqueta es especial para los parrafos-->
+		<p style="font-family: arial=font-size: ">
+			<!-- <b> sirve para poner el contenido en negrita, es para tener estilo visual -->
+			<!-- <strong> sirve para poner el contenido en negrita, darle enfasis a nabegador y buscadores, es mas inportante -->
+			<!-- <span> es para hacer enfasis -->
+			<!-- <i> nos permite agregar letras en italica -->
+			
+			HTML, cuyas siglas significan Lenguaje de Marcado de Hipertexto (<b>Hypertext Markup Languaje</b>), 
+			es un <strong>lenguaje bastante simple</strong>. 
+			Consiste en distintos <span>elementos</span> que utilizamos para estructurar <i>una página web</i>.
+		</p>
+		
+		<!--podes agregar imagenes. width=ancho de imagen; height=alto de imagen-->
+		<img src="Imagenes/logo_dg.jpg" alt="Logo copiado" title="Logo que saque se internet" width="50%" height="50%">
+
+		<img src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/09/569465-whatsapp-que-tus-contactos-ponen-rana-perfil.jpg?tf=1200x" alt="" width="300">
+
+		<!-- esta etiqueta cirve para saltar de linea-->
+		<br>
+		<!-- esta etiqueta es para los enlaces -->
+		<a target="_blank" href="https://www.google.com" title="OTRA PESTAÑA" >Ir a Google 1 </a>
+		<a href="https://www.google.com" title="ESTA PESTAÑA">Ir a Google 2 </a>
+		<br><br>
+		<a href="Imagenes/logo_dg.jpg">Ir a la imagen</a>
+		<br><br>
+		<a href="mailto:nachotom02@gmail.com" title="Enviar correo a Danilo Guerra">Enviar Mail</a>
+
+		<!-- agrega un linea separadora entre cada elemento  -->
+		<hr />
+
+		<h2>subtitulo del articulo</h2>
+		
+		<p>
+			<!-- <blockquote> sirve para hacer sitas -->
+			<!-- <cite> para el uator de la sita  -->
+			<blockquote>El elemento normalmente comienza con una etiqueta de apertura, 
+			la cual consiste en el nombre del elemento. 
+			Se rodean (Es contenida) por corchetes angulares de apertura y cierre.
+			La etiqueta de apertura indica dónde comienza el elemento.
+			</blockquote>
+			<cite>experto en HTML</cite>
+		</p>
+		
+		<!-- crea una lista  -->
+		<ul> 
+			<!--se introduse un item-->
+			<li>Iten #1</li>
+			<li>Iten #2</li>
+				<!--creamos una lista dentro de una lista-->
+				<ul>
+					<li>Iten #1</li>
+					<li>Iten #2</li>
+				</ul>
+			<li>Iten #4</li>
+			<!--hago que un item sea un enlace-->
+			<li><a href="#" >Item #5</a></li>
+		</ul>
+		
+		<!--crea una lista ordenada-->
+		<ol>
+			<li>Iten #1</li>
+			<li>Iten #2</li>
+			<li>Iten #3</li>
+			<!--creamos una lista dentro de una lista-->
+			<ul>
+				<li>Iten #1</li>
+				<li>Iten #2</li>
+			</ul>	
+			<li>Iten #4</li>
+			<li>Iten #5</li>
+		</ol>
+
+		<!--crea tabla-->
+		<table width= "50%" border= "1">
+			<!--cada tr crea una fila -->
+			<tr>
+				<!--la cantida de elementos que allan, seran columnas -->
+				<td>Elemento #1</td>
+				<td>Elemento #2</td>
+				<td>Elemento #3</td>
+			</tr>
+			<tr>
+				<td>Elemento #4</td>
+				<td>Elemento #5</td>
+				<td>Elemento #6</td>
+			</tr>
+			<tr>
+				<td>Elemento #7</td>
+				<td>Elemento #8</td>
+				<td>Elemento #9</td>
+			</tr>
+		</table>
+	</body>
+</html>

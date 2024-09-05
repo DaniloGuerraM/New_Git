@@ -1,0 +1,74 @@
+<html>
+    <body>
+        <form>
+            <h1>Formularo</h1>
+            <br/>
+            Apellido: <input id="inputApellido" type="text">
+            <br/>
+            Nombre: <input id="inputNombre" type="text">
+            <bR/>
+            Tipo de Documento:
+            <select>
+                <option value="1">DNI</option>
+                <option value="2">CUIL</option>
+            </select>
+            <br/>
+            Documento: <input id="inputDocumento">
+            <br/>
+            Genero:
+            <input name="inputGenero"  id="inputMasculino" value="M" type="radio">Masculino</input>
+            <input name="inputGenero"  id="inputFemenino" value="F" type="radio">Femenino</input>
+            <input name="inputGenero"  id="inputNoDecirlo" value="N" type="radio">NO Decirlo</input>
+            <br/>
+            Password: <input id="inputPassword" type="password" name="password"/>
+            <br/>
+            Recibe <input id="inputRecibeCopia" type="checkbox" name="recibecopia"/>
+            <br/>
+            <button type="submit">Enviar </button>
+            <button type="clear">Limpiar</button>
+        </form>
+        <p>
+            <span id="ejemplo"></span>
+        </p>
+        <p>
+            la temperatura en <b><span style="font-size: 18; font-family: Arial;" id="ciudad"></span></b> es de <span style="color: orange; font-size: 18; font-family: arial;" id="temperatura"></span>
+        </p>
+        localided <input type="text" id="inputCiudad"/>
+
+        <button  onclick="temperatura;">
+            mostrar temperatura
+        </button>
+        <script>
+            function temperatura(){
+                    
+                var localidad = document.getElementById("inputCiudad").value;
+
+                var url = "https://api.weatherapi.com/v1/current.json?q="+localidad+"&lang=es&key=87637c428a6a496098d230942242604";
+                
+                fetch(url)
+                    .then(Response => {
+                        if (Response.ok)
+                        {
+                            var instanciaobjeto = Response.json();
+                            return instanciaobjeto;
+                        }
+                    })
+                    .then( data => {
+                        var ciudad = data.location.name;
+                        var temperatura = data.current.temp_c;
+
+                        document.getElementById("ciudad").innerText = ciudad;
+                        document.getElementById("temperatura").innerText = temperatura;
+                    })
+                    .catch( error => {
+                        alert(error);
+                    });
+            }
+
+            
+
+            //document.getElementById("ejemplo").innerText = algo;
+        </script>
+    </body>
+</html>
+

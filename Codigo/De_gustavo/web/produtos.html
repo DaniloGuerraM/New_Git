@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script>
+            function obtenerPorducto(){
+                
+                console.log("clich butto");
+                //alert("click");
+                var url = "http://localhost:3000/productos";
+                
+                fetch(url).then(Response => {
+                        if (Response.ok)
+                        {
+                            var instanciaobjeto = Response.json();
+                            return instanciaobjeto;
+                        }
+                    }).then( data => {
+                        var tieneError = data.Error;//
+                        if (!tieneError)
+                            var tablaProducto = document.getElementById("productos");
+                            if (tablaProducto)
+                            {
+                                var cuerpoProducto = tablaProducto.querySelector("tbody");
+                                data.Carga.forEach(element => {
+                                    var fila = document.createElement('tr');
+                                    fila.innerHTML = '<td>'+ element.productoId +'</td><td>'+element.Descripcion+'</td><td>'+element.precio+'</td>'
+
+                                    cuerpoProducto.appendChild(fila);
+                                });
+                            }
+                    }).catch( error => {
+                        alert(error);
+                    });
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="obtenerPorducto();">
+            Listar producto
+        </button>
+        <table id="productos" >
+            <tr>
+                <td>
+                    id
+                </td>
+                <td>
+                    Descripcion
+                </td>
+                <td>
+                    precio
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combustibles.API", "Combustibles.app\Combustibles.app.csproj", "{92FFC801-CFF0-4CD5-BD88-C02F3F944302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combustibles.API", "Combustibles.API\Combustibles.API.csproj", "{1845D4DB-1C30-46C0-B378-C5E7196A1926}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92FFC801-CFF0-4CD5-BD88-C02F3F944302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92FFC801-CFF0-4CD5-BD88-C02F3F944302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92FFC801-CFF0-4CD5-BD88-C02F3F944302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92FFC801-CFF0-4CD5-BD88-C02F3F944302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1845D4DB-1C30-46C0-B378-C5E7196A1926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1845D4DB-1C30-46C0-B378-C5E7196A1926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1845D4DB-1C30-46C0-B378-C5E7196A1926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1845D4DB-1C30-46C0-B378-C5E7196A1926}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
