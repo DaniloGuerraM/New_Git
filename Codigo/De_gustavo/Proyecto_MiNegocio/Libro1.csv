@@ -1,0 +1,9 @@
+id;codigo_EAN;descripcion;producto;precio;porcentaje_IVA
+11;584895849345;Faborita;fideo;0;100
+22;845943495493;elegante;limpiesa;0;200
+30;584847584937;Netmak;electrodomestico;0;250
+33;948593348599;pepci;bebida;0;300
+44;393934888389;caballa;enlatado;0;400
+55;747387384738;Ariel;limpiesa;0;500
+66;748384958393;Manao;bebida;0;600
+77;473647823827;fanta;bebida;0;700
