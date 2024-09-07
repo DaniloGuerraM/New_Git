@@ -11,13 +11,9 @@ var connectioString = builder.Configuration.GetConnectionString("DefaultConnecti
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectioString));
 
 
-//builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
-//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.configuration.GetConnectioString("DefaultConnection")));
-
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
