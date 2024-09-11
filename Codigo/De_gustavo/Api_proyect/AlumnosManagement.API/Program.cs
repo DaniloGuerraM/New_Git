@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectioString = builder.Configuration.GetConnectionString("DefaultConnection");//
 
+builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectioString));
 
 
@@ -17,7 +20,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+
 
 
 var app = builder.Build();
