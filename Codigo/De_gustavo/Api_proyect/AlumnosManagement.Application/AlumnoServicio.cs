@@ -1,18 +1,16 @@
+using AlumnosManagement.Application.Interfaces;
+using AlumnosManagement.Domain.Entities;
+
 namespace AlumnosManagement.Application;
 
-public class AlumnoServicio : IAlumnoRepository
+public class AlumnoServicio : IAlumnoServicio
 {
     private readonly IAlumnoRepository _alumnoReposiroty;
 
-    //private readonly ILogger<AlumnoServicio> _logger;
 
-    public AlumnoServicio(IAlumnoRepository alumnoRepository/*, ILogger<AlumnoServicio> logger*/)
+    public AlumnoServicio(IAlumnoRepository alumnoRepository)
     {
         _alumnoReposiroty = alumnoRepository;
-        
-        //_logger = logger;
-
-        //_logger.LogInformation("Create Alumno servicio");
     }
 
     public IEnumerable<Alumno> ObtenerAlumnos()
