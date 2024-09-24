@@ -23,6 +23,8 @@ import com.google.mlkit.vision.common.InputImage;
 
 import java.util.List;
 
+
+//<uses-feature android:name="android.hardware.camera.any" />
 public class MainActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 100;
@@ -44,13 +46,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al hacer clic en el botón, inicia el escaneo de código QR
-                scanQRCode();
+                escanearcódigoQR();
             }
         });
     }
 
     // Método para capturar una imagen con la cámara
-    public void scanQRCode() {
+    public void escanearcódigoQR() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
     }
@@ -78,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Manejo de los permisos de la cámara
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

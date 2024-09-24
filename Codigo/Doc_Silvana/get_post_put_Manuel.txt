@@ -1,0 +1,92 @@
+
+#Documento: Descripción y Funcionamiento del Código MainActivity
+
+##Descripción General
+Este código corresponde a una aplicación Android que realiza solicitudes HTTP de tipo GET, PUT y POST a un servidor. A través de la interfaz gráfica, el usuario puede seleccionar el tipo de solicitud que desea realizar, y la respuesta del servidor se muestra en un TextView. Las solicitudes se ejecutan de manera asíncrona para no bloquear la interfaz de usuario.
+
+##Funcionalidades Principales
+###Solicitudes GET, PUT y POST:
+
+GET: Recupera datos de una API en la URL especificada.
+PUT: Envía datos actualizados a la API en formato JSON.
+POST: Envía datos nuevos a la API en formato JSON.
+Chequeo de Conectividad: Antes de realizar cualquier solicitud, se comprueba si el dispositivo está conectado a una red.
+
+Actualización de la Interfaz de Usuario: La respuesta de la solicitud (si tiene éxito o falla) se muestra en un TextView en la interfaz.
+
+Descripción Detallada de las Funciones
+Interfaz Gráfica (UI):
+
+El archivo XML asociado (activity_main.xml) contiene un TextView para mostrar resultados y tres botones:
+buttonget: Realiza la solicitud GET.
+buttonput: Realiza la solicitud PUT.
+buttonpost: Realiza la solicitud POST.
+Chequeo de Conexión a Internet:
+
+java
+Copiar código
+public void chequear(String metodo) {
+    ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+    if (networkInfo != null && networkInfo.isConnected()) {
+        // Realiza el tipo de solicitud según el método pasado como parámetro.
+    } else {
+        textView.setText("No conectado");
+    }
+}
+Antes de realizar una solicitud, la aplicación verifica si hay conexión activa a internet. Si no hay conexión, muestra un mensaje en pantalla.
+Solicitud GET:
+
+Cuando el usuario presiona el botón "GET", se ejecuta el siguiente código:
+java
+Copiar código
+public void get() {
+    textView.setText("Haciendo un GET");
+    String url = "http://172.23.5.194:3002/API/Alumnos";
+    new GetAPI().execute(url);
+}
+Se hace una solicitud GET a la API en la URL definida y se maneja la respuesta de forma asíncrona en la clase GetAPI.
+Solicitud PUT:
+
+Se ejecuta cuando el usuario presiona el botón "PUT":
+java
+Copiar código
+public void put() {
+    textView.setText("Haciendo un PUT");
+    String url = "http://172.23.5.194:3002/API/Alumno";
+    String jsonString = "{\"name\":\"danilo\"}";
+    new PutAPI().execute(url, jsonString);
+}
+Envía una solicitud PUT a la API con el JSON correspondiente. La clase PutAPI gestiona la operación asíncrona.
+Solicitud POST:
+
+Similar al PUT, pero con la solicitud POST, se ejecuta cuando el usuario presiona el botón "POST":
+java
+Copiar código
+public void post() {
+    textView.setText("Haciendo un POST");
+    String url = "http://172.23.5.194:3002/API/Registro";
+    String jsonString = "{\"name\":\"carlos\"}";
+    new PostAPI().execute(url, jsonString);
+}
+Manejo Asíncrono de Solicitudes
+Para evitar que la interfaz de usuario se bloquee, las solicitudes se realizan en segundo plano mediante la clase AsyncTask.
+Las clases internas GetAPI, PutAPI y PostAPI gestionan las solicitudes GET, PUT y POST respectivamente.
+Permisos Requeridos
+El código no requiere permisos explícitos de red en el manifiesto, pero para que funcione correctamente, debes declarar el siguiente permiso en el archivo AndroidManifest.xml:
+
+xml
+Copiar código
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+INTERNET: Necesario para permitir que la aplicación realice solicitudes HTTP a servidores remotos.
+ACCESS_NETWORK_STATE: Permite a la aplicación verificar si hay conexión de red disponible antes de realizar la solicitud.
+Dependencias y Requisitos
+Conexión a Internet: El dispositivo necesita estar conectado a una red para que la aplicación funcione correctamente.
+API HTTP: Las solicitudes GET, PUT y POST se dirigen a las URLs especificadas en el código, que deben ser endpoints válidos en una API HTTP.
+Android SDK Version: Este código es compatible con versiones recientes de Android, pero deberías verificar que el target SDK en el build.gradle esté configurado adecuadamente.
+Posibles Mejoras
+Manejar mejor los errores de conexión y mostrar mensajes detallados al usuario.
+Utilizar bibliotecas más modernas como Retrofit o Volley en lugar de HttpURLConnection, lo que simplificaría el manejo de peticiones y respuestas de APIs REST.
+Conclusión
+Este código proporciona una base funcional para interactuar con una API a través de solicitudes HTTP GET, PUT y POST en una aplicación Android. Asegúrate de configurar correctamente los permisos y la conexión de red para garantizar que las solicitudes se realicen de manera exitosa.

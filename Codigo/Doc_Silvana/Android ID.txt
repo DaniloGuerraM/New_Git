@@ -1,0 +1,34 @@
+
+El Android ID es un identificador único que se asigna al dispositivo cuando se configura por primera vez.
+ Sin embargo, existen ciertos casos en los que el Android ID puede cambiar o ser modificado:
+
+Situaciones en las que el Android ID puede cambiar:
+*Restablecimiento de fábrica (Factory Reset):
+	Si el dispositivo se restablece a la configuración de fábrica, se genera un nuevo Android ID.
+*Usuarios múltiples en el dispositivo: 
+	Si el dispositivo tiene configurados varios usuarios (en dispositivos que permiten múltiples cuentas de usuario), cada usuario tiene su propio Android ID. Esto significa que si se cambia de usuario, el ID será diferente.
+*Instalación de una ROM personalizada: ¨
+	Cambiar el sistema operativo del dispositivo o instalar una ROM personalizada puede alterar el Android ID.
+*Restaurar una copia de seguridad en un nuevo dispositivo: 
+	Si se restaura una copia de seguridad en un dispositivo diferente, se generará un nuevo Android ID en el dispositivo restaurado.
+
+
+Situaciones en las que el Android ID NO cambia:
+*Actualización del sistema operativo: 
+	Actualizar a una nueva versión de Android no modifica el Android ID.
+*Reiniciar el dispositivo: 
+	Reiniciar el dispositivo no afecta el Android ID.
+
+Cambios en versiones de Android:
+En Android 8.0 (Oreo) y versiones posteriores, el Android ID puede ser diferente para cada aplicación y usuario. Esto mejora la privacidad, evitando que diferentes aplicaciones usen el mismo identificador.
+
+
+Resumen:
+En la mayoría de los casos, el Android ID es persistente,
+pero puede cambiar después de un restablecimiento de fábrica, 
+en un entorno multiusuario o al instalar una ROM personalizada.
+
+Si tu aplicación depende de un identificador único para identificar un dispositivo de manera permanente, 
+el Android ID puede no ser la mejor opción, especialmente si necesitas que sea inmutable. 
+Alternativas como GUIDs generados por la aplicación o el Identificador de Publicidad de Google (AAID) 
+podrían ser más apropiadas dependiendo de los casos de uso.

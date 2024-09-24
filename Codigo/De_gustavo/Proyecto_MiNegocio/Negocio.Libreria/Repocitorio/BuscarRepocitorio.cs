@@ -12,7 +12,7 @@ public class BuscarRepocitorio
     public List<Producto> ObtenerProductos()
     {
        return _negocioContexto.producto.ToList();
-    } 
+    }
     internal List<Producto> ListarProductoPorDescripcion(string descripcion)
     {
         return _negocioContexto.producto.Where(d => d.Descripcion.ToLower().Contains(descripcion.ToLower())).ToList();

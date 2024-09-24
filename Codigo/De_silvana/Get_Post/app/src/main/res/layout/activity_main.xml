@@ -9,6 +9,14 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/button_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POST"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <Button
         android:id="@+id/boton_get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,15 +30,15 @@
 
     <TextView
         android:id="@+id/texto_1"
-        android:layout_width="176dp"
-        android:layout_height="131dp"
+        android:layout_width="240dp"
+        android:layout_height="422dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintVertical_bias="0.802" />
 
     <Button
         android:id="@+id/button_put"
