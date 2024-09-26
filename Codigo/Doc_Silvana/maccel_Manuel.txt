@@ -1,71 +1,47 @@
-#Documentación del Código de la Aplicación Android: com.example.maccel
 
-##Descripción General
-Esta aplicación Android tiene una funcionalidad básica que obtiene el Android ID del dispositivo como una alternativa a la dirección MAC (ya que, por razones de seguridad, las versiones recientes de Android no permiten el acceso a la dirección MAC de la red Wi-Fi de manera directa).
+
+Esta aplicación Android tiene una funcionalidad básica que obtiene el Android ID del dispositivo como una alternativa a la dirección MAC 
+(ya que, por razones de seguridad, las versiones recientes de Android no permiten el acceso a la dirección MAC de la red Wi-Fi de manera directa).
 
 La aplicación presenta una interfaz gráfica con un botón que, al ser presionado, muestra el Android ID en un TextView.
 
-##Componentes del Código
-###1. Activity Principal (MainActivity)
+
 La clase principal MainActivity extiende de AppCompatActivity e incluye:
 
 Un TextView para mostrar el Android ID.
 Un Button para ejecutar la acción de obtener y mostrar el Android ID cuando se presiona.
-###2. Layout
-El archivo XML correspondiente a la interfaz gráfica (activity_main.xml, no incluido en este documento) debería contener al menos un TextView con el id macView y un Button con el id buttonMac.
 
-###3. Método getMac()
-El método getMac() obtiene el Android ID del dispositivo. Este valor es una cadena única para cada dispositivo y no puede ser cambiado, aunque es posible que se restablezca si el dispositivo se formatea. Es utilizado como una alternativa a la dirección MAC debido a restricciones de seguridad en Android.
+
+
+El archivo XML correspondiente a la interfaz gráfica 
+debería contener al menos un TextView con el id macView y un Button con el id buttonMac.
+
+
+El método getMac() obtiene el Android ID del dispositivo. 
+Este valor es una cadena única para cada dispositivo y no puede ser cambiado, 
+aunque es posible que se restablezca si el dispositivo se formatea. 
+Es utilizado como una alternativa a la dirección MAC debido a restricciones de seguridad en Android.
 
 public String getMac() {
     return Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 }
-###4. Permisos
-El código no solicita ningún permiso especial para obtener el Android ID. No obstante, es recomendable revisar el archivo AndroidManifest.xml para asegurar que la aplicación cuente con los permisos mínimos requeridos para operar correctamente.
+
+
+Permisos
+El código no solicita ningún permiso especial para obtener el Android ID. 
+No obstante, es recomendable revisar el archivo AndroidManifest.xml para asegurar que la aplicación 
+cuente con los permisos mínimos requeridos para operar correctamente.
 
 <uses-permission android:name="android.permission.INTERNET" />
-###5. Compatibilidad con Inset de Pantalla
-La aplicación también ajusta el diseño de la interfaz gráfica para asegurarse de que los elementos de la UI no se vean obstaculizados por las barras de sistema (por ejemplo, la barra de estado o la barra de navegación). Esto se maneja mediante la siguiente línea:
 
-ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-    return insets;
-});
-Este código garantiza que las vistas ajusten sus márgenes de acuerdo a los "insets" del sistema, lo cual es útil en dispositivos con pantallas con notch o barras de navegación.
 
-##Permisos Necesarios
-La obtención del Android ID no requiere permisos especiales más allá de los básicos como acceso a Internet, si es necesario por la lógica de la aplicación. Sin embargo, en caso de querer solicitar la MAC de la red Wi-Fi en una versión de Android donde esté permitido, sería necesario el permiso ACCESS_WIFI_STATE. Dicho permiso se declara de la siguiente manera en el archivo AndroidManifest.xml:
 
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-Código en AndroidManifest.xml
-Un archivo AndroidManifest.xml típico para esta aplicación incluiría las siguientes líneas:
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.maccel">
+La obtención del Android ID no requiere permisos especiales más allá de los básicos como acceso a Internet, 
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Maccel">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-
-    <!-- Permisos de la aplicación -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-</manifest>
-##Notas Adicionales
-Android ID es un identificador único que no requiere permisos especiales, y es el enfoque correcto cuando se busca identificar dispositivos sin necesitar la dirección MAC física.
-Este código es compatible con dispositivos que ejecutan versiones recientes de Android y asegura que la interfaz gráfica se ajuste correctamente para que no se vea afectada por los elementos del sistema operativo, como las barras de navegación o de estado.
-Recomendaciones
-Asegúrate de que el archivo activity_main.xml incluya los elementos necesarios (TextView y Button) con los ids correctos.
-Verifica que en AndroidManifest.xml se haya añadido el permiso para acceder a Wi-Fi si eventualmente decides acceder a la dirección MAC (aunque no es necesario en este caso porque se usa el Android ID).
+Android ID es un identificador único que no requiere permisos especiales, 
+y es el enfoque correcto cuando se busca identificar dispositivos 
+sin necesitar la dirección MAC física.
+Este código es compatible con dispositivos que ejecutan versiones recientes de Android y 
+asegura que la interfaz gráfica se ajuste correctamente para que no se vea afectada por los 
+elementos del sistema operativo, como las barras de navegación o de estado.

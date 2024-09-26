@@ -6,7 +6,8 @@ Situaciones en las que el Android ID puede cambiar:
 *Restablecimiento de fábrica (Factory Reset):
 	Si el dispositivo se restablece a la configuración de fábrica, se genera un nuevo Android ID.
 *Usuarios múltiples en el dispositivo: 
-	Si el dispositivo tiene configurados varios usuarios (en dispositivos que permiten múltiples cuentas de usuario), cada usuario tiene su propio Android ID. Esto significa que si se cambia de usuario, el ID será diferente.
+	Si el dispositivo tiene configurados varios usuarios (en dispositivos que permiten múltiples cuentas de usuario), 
+	cada usuario tiene su propio Android ID. Esto significa que si se cambia de usuario, el ID será diferente.
 *Instalación de una ROM personalizada: ¨
 	Cambiar el sistema operativo del dispositivo o instalar una ROM personalizada puede alterar el Android ID.
 *Restaurar una copia de seguridad en un nuevo dispositivo: 
@@ -20,7 +21,8 @@ Situaciones en las que el Android ID NO cambia:
 	Reiniciar el dispositivo no afecta el Android ID.
 
 Cambios en versiones de Android:
-En Android 8.0 (Oreo) y versiones posteriores, el Android ID puede ser diferente para cada aplicación y usuario. Esto mejora la privacidad, evitando que diferentes aplicaciones usen el mismo identificador.
+En Android 8.0 (Oreo) y versiones posteriores, el Android ID puede ser diferente para cada aplicación y usuario. 
+Esto mejora la privacidad, evitando que diferentes aplicaciones usen el mismo identificador.
 
 
 Resumen:
