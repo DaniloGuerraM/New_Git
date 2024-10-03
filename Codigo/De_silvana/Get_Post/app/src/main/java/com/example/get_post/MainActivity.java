@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void get() {
         textView.setText("Haciendo un GET");
-        String url = "http://172.23.5.194:3002/API/Alumnos";
+        String url = "http://172.23.0.45:3001/Asis/Pedir";
         new GetAPI().execute(url);
     }
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void put() {
         textView.setText("Haciendo un PUT");
-        String url = "http://172.23.5.194:3002/API/Alumno";
+        String url = "http://172.23.0.45:3001/Asis/Actualizar";
         String jsonString = "{\"name\":\"danilo\"}";
         new PutAPI().execute(url, jsonString);
     }
@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void post() {
         textView.setText("Haciendo un POST");
-        String url = "http://172.23.5.194:3002/API/Registro";
+        String url = "http://172.23.0.45:3001/Asis/Agregar";
         String jsonString = "{\"name\":\"carlos\"}";
         new PostAPI().execute(url, jsonString);
     }
