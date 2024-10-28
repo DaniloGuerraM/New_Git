@@ -24,6 +24,7 @@ SmtpClient: Alias para evitar conflictos con la clase SmtpClient de System.Net.M
 
 * static void Main()
 * {
+* EnviarCorreo("nachotom02@gmail.com", "desde el ites", "se le agradese de su participacion");
   * }
     *}
 Program: Clase principal que contiene el punto de entrada del programa.
