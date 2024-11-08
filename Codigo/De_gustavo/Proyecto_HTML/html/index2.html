@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT Request</title>
+</head>
+<body>
+    <h1>Actualizar datos</h1>
+
+    <!-- Formulario para PUT -->
+    <form id="putForm">
+        <label for="dniPut">DNI:</label>
+        <input type="number" id="dniPut" required>
+        <label for="idAndroidPut">ID Android:</label>
+        <input type="text" id="idAndroidPut" required>
+        <button type="button" onclick="sendPutRequest()">Enviar PUT</button>
+    </form>
+
+    <script>
+        function sendPutRequest() {
+            const dni = parseInt(document.getElementById('dniPut').value, 10);
+            const idAndroid = document.getElementById('idAndroidPut').value;
+
+            const data = {
+                dni: dni,
+                mac: idAndroid
+            };
+
+            const url = "http://77.81.230.76:5095/api/Alumno/mac";
+
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                // Verifica si la respuesta es JSON
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.includes("application/json")) {
+                    return response.json();
+                } else {
+                    return response.text(); // Procesa como texto si no es JSON
+                }
+            })
+            .then(data => {
+                console.log('Respuesta del servidor:', data);
+                alert(`Solicitud PUT exitosa: ${typeof data === 'string' ? data : JSON.stringify(data)}`);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(`Error en solicitud PUT: ${error.message}`);
+            });
+        }
+    </script>
+</body>
+</html>
+

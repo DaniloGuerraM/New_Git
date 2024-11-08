@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Peticiones</title>
+        <script src="../assets/js/Request.js"></script>
+    </head>
+    <body>
+        <h2>Presiona el botón para obtener datos del servidor</h2>
+        <form onsubmit="obtenerAlumno(event)">
+            <label for="dniGet">DNI:</label>
+            <input type="number" id="dniGet" required>
+            <button type="submit">Obtener Datos</button>
+        </form>
+
+        <p>
+            DNI: <b><span id="DNI"></span></b>
+            <br>
+            Nombre: <b><span id="Nombre"></span></b>
+            <br>
+            Apellido: <b><span id="Apellido"></span></b>
+            <br>
+            Mac: <b><span id="Mac"></span></b>
+        </p>
+
+        <h2>Registrar Alumno</h2>
+        <form id="postForm">
+            <label for="dniPost">DNI:</label>
+            <input type="number" id="dniPost" required>
+            
+            <label for="nombrePost">Nombre:</label>
+            <input type="text" id="nombrePost" required>
+            
+            <label for="apellidoPost">Apellido:</label>
+            <input type="text" id="apellidoPost" required>
+            
+            <label for="macPost">MAC:</label>
+            <input type="text" id="macPost" required>
+            
+            <button type="button" onclick="PostRequest()">Enviar POST</button>
+        </form>
+
+        <h2>Actualizar Alumno</h2>
+        <form id="putForm">
+            <label for="dniPutA">DNI:</label>
+            <input type="number" id="dniPutA" required>
+
+            <label for="nombrePutA">Nombre:</label>
+            <input type="text" id="nombrePutA" required>
+            
+            <label for="apellidoPutA">Apellido:</label>
+            <input type="text" id="apellidoPutA" required>
+            
+            <label for="macPutA">MAC:</label>
+            <input type="text" id="macPutA" required>
+            
+            <button type="button" onclick="AlumnoPutRequest()">Enviar PUT</button>
+        </form>
+
+        <h2>Actualizar datos</h2>
+        <form id="putForm">
+            <label for="dniPut">DNI:</label>
+            <input type="number" id="dniPut" required>
+            <label for="idAndroidPut">ID Android:</label>
+            <input type="text" id="idAndroidPut" required>
+            <button type="button" onclick="PutRequest()">Enviar PUT</button>
+        </form>
+
+        <h2>Eliminar Alumno</h2>
+        <form id="deleteForm">
+            <label for="dniDelete">DNI:</label>
+            <input type="number" id="dniDelete" required>
+            
+            <button type="button" onclick="DeleteRequest()">Eliminar</button>
+        </form>
+    </body>
+</html>
