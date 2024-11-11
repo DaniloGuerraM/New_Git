@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado de Alumnos</title>
+
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/Listados.js"></script>
+        
+        <style>
+            body {
+                background-image: url('../assets/image/003.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat; 
+                background-attachment: fixed; 
+            }.ctext{
+                color:black;
+            }
+        </style>
+
+    </head>
+    <body class="container mt-5">
+
+        <div class="text-right">
+            <a href="Inicio.html" style="font-size: 1.5em; padding: 20px 40px;" class="btn btn-danger">Volver</a>
+        </div>
+
+        <h2 class="text-center mb-4">Listado de Alumnos</h2>
+
+        
+        <div class="text-center mb-4">
+            <h4>Total de alumnos: <span id="totalAlumnos">0</span></h4>
+        </div>
+
+        <h2 class="text-center">Buscar Alumno</h2>
+        <form onsubmit="obtenerAlumno(event)" class="mb-4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <!--label for="dniGet">DNI:</label-->
+                    <input type="number" class="form-control" id="dniGet" required placeholder="Introduce el DNI">
+                </div>
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary btn-block">Obtener Datos</button>
+                </div>
+            </div>
+            
+        </form>
+    
+        <table id="resultadob" class="table table-striped table-bordered">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>MAC</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th><b><span id="DNI" class="ctext"></span></b></th>
+                    <th><b><span id="Nombre" class="ctext"></span></b></th>
+                    <th><b><span id="Apellido" class="ctext"></span></b></th>
+                    <th><b><span id="Mac" class="ctext"></span></b></th>
+                </tr>
+    
+            </thead>
+        </table>
+    
+        
+        <table id="resultado" class="table table-striped table-bordered">
+            <thead class="bg-success text-white">
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>MAC</th>
+                </tr>
+            </thead>
+            <tbody class="ctext"></tbody>
+        </table>
+    </body>
+</html>

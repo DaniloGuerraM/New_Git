@@ -3,8 +3,7 @@ function PostRequest() {
     const dni = parseInt(document.getElementById('dniPost').value, 10);
     const nombre = document.getElementById('nombrePost').value;
     const apellido = document.getElementById('apellidoPost').value;
-    const mac = document.getElementById('macPost').value;
-
+    const mac = null;
     const data = {
         dni: dni,
         nombre: nombre,
@@ -31,11 +30,13 @@ function PostRequest() {
     })
     .then(data => {
         console.log('Respuesta del servidor:', data);
-        alert(`Solicitud POST exitosa: ${typeof data === 'string' ? data : JSON.stringify(data)}`);
+        //alert(`Solicitud POST exitosa: ${typeof data === 'string' ? data : JSON.stringify(data)}`);
+        mostrarAlerta('Agregado con exito');
     })
     .catch(error => {
         console.error('Error:', error);
-        alert(`Error en solicitud POST: ${error.message}`);
+        //alert(`Error en solicitud POST: ${error.message}`);
+        mostrarAlerta('Error al Agregar');
     });
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,11 +66,14 @@ function DeleteRequest() {
     })
     .then(data => {
         console.log('Respuesta del servidor:', data);
-        alert(`Solicitud DELETE exitosa: ${data}`);
+        //alert(`Solicitud DELETE exitosa: ${data}`);
+        mostrarAlerta('Removido con exito');
+
     })
     .catch(error => {
         console.error('Error:', error);
-        alert(`Error en solicitud DELETE: ${error.message}`);
+        //alert(`Error en solicitud DELETE: ${error.message}`);
+        mostrarAlerta('Error al Remover');
     });
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,59 +106,27 @@ function PutRequest() {
     })
     .then(data => {
         console.log('Respuesta del servidor:', data);
-        alert(`Solicitud PUT exitosa: ${typeof data === 'string' ? data : JSON.stringify(data)}`);
+        //alert(`Solicitud PUT exitosa: ${typeof data === 'string' ? data : JSON.stringify(data)}`);
+        mostrarAlerta('Actualizado con exito');
     })
     .catch(error => {
         console.error('Error:', error);
-        alert(`Error en solicitud PUT: ${error.message}`);
+        //alert(`Error en solicitud PUT: ${error.message}`);
+        mostrarAlerta('Error al Actualizar');
     });
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-function obtenerAlumno(event) {
-    event.preventDefault();
-    
-    const dniget = parseInt(document.getElementById('dniGet').value, 10);
 
-    if (isNaN(dniget)) {
-        alert("Por favor, ingresa un DNI válido.");
-        return;
-    }
-
-    const url = "http://77.81.230.76:5095/api/alumno/Dni?dni=" + dniget;
-
-    fetch(url)
-        .then(response => {
-            if (response.ok)
-            {
-                var instanciaobjeto = response.json();
-                return instanciaobjeto;
-            }
-        })
-        .then(data => {
-            
-            document.getElementById('DNI').innerText = data.dni;
-            document.getElementById('Nombre').innerText = data.nombre;
-            document.getElementById('Apellido').innerText = data.apellido;
-            document.getElementById('Mac').innerText = data.mac;
-
-
-            //document.getElementById('UnAlumno').innerText = JSON.stringify(data, null, 2);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('UnAlumno').innerText = 'Error al obtener los datos';
-        });
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 function AlumnoPutRequest() {
     const dni = parseInt(document.getElementById('dniPutA').value, 10);
     const nombre = document.getElementById('nombrePutA').value;
     const apellido = document.getElementById('apellidoPutA').value;
-    const mac = document.getElementById('macPutA').value;
+    const mac = null;
 
 
-    if (isNaN(dni) || !nombre || !apellido || !mac) {
-        alert("Por favor, completa todos los campos correctamente.");
+    if (isNaN(dni) || !nombre || !apellido ) {
+        //alert("");
+        mostrarAlerta('Por favor, completa todos los campos correctamente.');
         return;
     }
 
@@ -183,10 +155,24 @@ function AlumnoPutRequest() {
     })
     .then(data => {
         console.log('Respuesta del servidor:', data);
-        alert(`Solicitud PUT exitosa: ${data}`);
+        //alert(`Solicitud PUT exitosa: ${data}`);
+        mostrarAlerta('Actualizado con exito');
     })
     .catch(error => {
         console.error('Error:', error);
-        alert(`Error en solicitud PUT: ${error.message}`);
+        //alert(`Error en solicitud PUT: ${error.message}`);
+        mostrarAlerta('Error');
     });
+}
+function mostrarAlerta(mensaje) {
+    const alerta = document.getElementById('alerta');
+    const alertaMensaje = document.getElementById('alertaMensaje');
+    
+    alertaMensaje.textContent = `${mensaje}`;
+    alerta.style.display = 'block';
+
+    // Cierra la alerta después de 3 segundos
+    setTimeout(() => {
+        alerta.style.display = 'none';
+    }, 3000);
 }
