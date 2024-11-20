@@ -23,18 +23,20 @@ function obtenerAsistencia(event) {
         .then(data => {
             const resultadoTable = document.getElementById('Asistencia').querySelector('tbody');
             resultadoTable.innerHTML = '';
+			data.forEach(alumno => {
+				const row = document.createElement('tr');
+				const date = new Date(alumno.fecha * 1000);//.toISOString().slice(0, 19).replace('T', ' ');//.toLocaleTimeString("en-US");//.toLocaleDateString("en-US");//.toLocaleTimeString("en-US");
+				//const date = moment.unix(alumno.fecha).format("DD/MM/YYYY");
+				//date.toDateString();
+				row.innerHTML = `
+					<td>${date.toLocaleTimeString()}</td>
+					<td>${date.getFullYear()}</td>
+				`;
+				//<td>${alumno.idRegistro}</td>
+				//<td>${alumno.alumnoDNI}</td>
+				resultadoTable.appendChild(row);
+			});			
             
-            data.forEach(alumno => {
-                const row = document.createElement('tr');
-                const date = new Date(alumno.fecha);
-                date.toDateString();
-                row.innerHTML = `
-                    <td>${date}</td>
-                `;
-                //<td>${alumno.idRegistro}</td>
-                //<td>${alumno.alumnoDNI}</td>
-                resultadoTable.appendChild(row);
-            });
         })
         .catch(error => {
             console.error('Error:', error);
