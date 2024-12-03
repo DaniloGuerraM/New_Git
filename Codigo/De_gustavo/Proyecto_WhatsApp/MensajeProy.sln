@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsAppProy", "WhatsAppProy\WhatsAppProy.csproj", "{5D022734-3A88-461E-BEEB-16DB5EEEB5A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MensajeProye", "MensajeProy\MensajeProye.csproj", "{1C724473-CD9C-4C8F-9124-03EC0410372B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSProy", "SMSProy\SMSProy.csproj", "{AFA80196-4A1D-457F-A375-925DCB276B71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D022734-3A88-461E-BEEB-16DB5EEEB5A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D022734-3A88-461E-BEEB-16DB5EEEB5A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D022734-3A88-461E-BEEB-16DB5EEEB5A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D022734-3A88-461E-BEEB-16DB5EEEB5A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C724473-CD9C-4C8F-9124-03EC0410372B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C724473-CD9C-4C8F-9124-03EC0410372B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C724473-CD9C-4C8F-9124-03EC0410372B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C724473-CD9C-4C8F-9124-03EC0410372B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFA80196-4A1D-457F-A375-925DCB276B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA80196-4A1D-457F-A375-925DCB276B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA80196-4A1D-457F-A375-925DCB276B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA80196-4A1D-457F-A375-925DCB276B71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

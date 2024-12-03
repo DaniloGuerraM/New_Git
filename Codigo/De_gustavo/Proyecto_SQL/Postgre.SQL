@@ -86,6 +86,8 @@ SELECT DISTINCT
 FROM temp_retail_data
 WHERE id_cliente IS NOT NULL
 ON CONFLICT (id) DO NOTHING;  -- Evitar duplicados si el cliente ya existe.
+
+
 -- Insertar productos únicos en la tabla `dim_producto`.
 INSERT INTO dim_producto (nombre_producto, categoria)
 SELECT DISTINCT descripcion, 'Sin Categoría'
@@ -111,27 +113,45 @@ SELECT
 FROM temp_retail_data
 WHERE cantidad IS NOT NULL AND precio_unitario IS NOT NULL;
 
--- Consulta para obtener la cantidad total de productos vendidos por país.
-SELECT u.pais, SUM(h.cantidad_vendida) AS total_vendidos
-FROM hecho_ventas h
-JOIN dim_ubicacion u ON h.ubicacion_id = u.id
-GROUP BY u.pais;
 
--- Consulta para obtener la cantidad total de productos vendidos por país utilizando `dim_cliente.ubicacion_id`.
-SELECT u.pais, SUM(h.cantidad_vendida) AS total_vendidos
-FROM hecho_ventas h
-JOIN dim_cliente c ON h.cliente_id = c.id
-JOIN dim_ubicacion u ON c.ubicacion_id = u.id
-GROUP BY u.pais;
 
--- Consulta para obtener el mes con mayores ventas por año y país.
 SELECT 
-    EXTRACT(YEAR FROM t.fecha_hora) AS año,          -- Extraer el año de la columna `fecha_hora`.
-    EXTRACT(MONTH FROM t.fecha_hora) AS mes,         -- Extraer el mes de la columna `fecha_hora`.
-    u.pais,                                          -- País de la transacción.
-    SUM(h.total_venta) AS total_ventas               -- Sumar el total de ventas.
+    u.pais AS pais, -- Selecciona la columna "pais" de la tabla dim_ubicacion.
+    SUM(h.cantidad_vendida) AS total_productos_vendidos -- Suma la cantidad total de productos vendidos en cada país.
 FROM hecho_ventas h
-JOIN dim_tiempo t ON h.fecha_id = t.id               -- Unir `hecho_ventas` con `dim_tiempo`.
-JOIN dim_ubicacion u ON h.ubicacion_id = u.id        -- Unir `hecho_ventas` con `dim_ubicacion`.
-GROUP BY año, mes, u.pais                            -- Agrupar por año, mes y país.
-ORDER BY total_ventas DESC;                          -- Ordenar en orden descendente de ventas.
+JOIN dim_ubicacion u ON h.ubicacion_id = u.id -- Une la tabla hecho_ventas con dim_ubicacion usando la clave foránea "ubicacion_id".
+GROUP BY u.pais -- Agrupa los resultados por país.
+ORDER BY total_productos_vendidos DESC; -- Ordena los resultados en orden descendente por la cantidad total de productos vendidos.
+
+
+
+SELECT DISTINCT ON (u.pais) -- Devuelve solo una fila por país (priorizando el producto con mayor cantidad vendida).
+    u.pais AS pais, -- Selecciona el país de la tabla dim_ubicacion.
+    p.nombre_producto AS producto_mas_vendido, -- Selecciona el nombre del producto más vendido.
+    SUM(h.cantidad_vendida) OVER (PARTITION BY u.pais, p.id) AS cantidad_vendida -- Calcula la cantidad total de ese producto vendido por país.
+FROM hecho_ventas h
+JOIN dim_producto p ON h.producto_id = p.id -- Une la tabla hecho_ventas con dim_producto para obtener los nombres de los productos.
+JOIN dim_ubicacion u ON h.ubicacion_id = u.id -- Une la tabla hecho_ventas con dim_ubicacion para obtener los países.
+ORDER BY u.pais, cantidad_vendida DESC; -- Ordena los productos dentro de cada país por la cantidad vendida en orden descendente.
+
+
+
+SELECT 
+    pais,
+    anio,
+    mes,
+    total_ventas
+FROM (
+    SELECT 
+        u.pais AS pais,
+        DATE_PART('year', t.fecha_hora) AS anio,
+        DATE_PART('month', t.fecha_hora) AS mes,
+        SUM(h.total_venta) AS total_ventas,
+        ROW_NUMBER() OVER (PARTITION BY u.pais, DATE_PART('year', t.fecha_hora) ORDER BY SUM(h.total_venta) DESC) AS rn
+    FROM hecho_ventas h
+    JOIN dim_tiempo t ON h.fecha_id = t.id
+    JOIN dim_ubicacion u ON h.ubicacion_id = u.id
+    GROUP BY u.pais, DATE_PART('year', t.fecha_hora), DATE_PART('month', t.fecha_hora)
+) ventas_por_mes
+WHERE rn = 1
+ORDER BY pais, anio;
