@@ -330,19 +330,6 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker-week-end, .ui-datepicker-week-end a.ui-state-default {color: red!important}
 
 
-.highlight-date a {
-	background-color: #09ff00 !important; /* Color del día seleccionado */
-	color: #000 !important;
-	font-weight: bold !important;
-}
-.non-selected-date a {
-	background-color: #f80b0b !important; /* Color para los días no seleccionados */
-	color: #000000 !important;
-}
-.weekend a {
-	background-color: #e0e0e0 !important; /* Fondo para sábados y domingos */
-	color: #000000 !important;
-}
 /*
 .ui-datepicker{
 	font-size: 12px;
