@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>Configuracion</title>
+        <!-- los link para los estilos -->
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+        <link rel="stylesheet" href="../assets/css/Configuracion.css">
+        <!--Los script para los js-->
+        <Script src="../assets/js/jquery-3.6.0.js"></Script>
+        <Script src="../assets/js/jquery-ui.js"></Script>
+        <script src="../assets/js/Configuracion.js"></script>
+
+    </head>
+    <body class="container mt-4 text-center">
+        <div class="text-right">
+            <a href="Inicio.html" style="font-size: 1.5em; padding: 20px 40px;" class="btn btn-danger fs-4">
+                Ir a Inicio
+            </a>
+        </div>
+
+        
+        <h1>Buscar al alumno</h1>        
+        
+        <br>
+        <div id="alerta0" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+            <span id="0"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <br><br>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text"  class="form-control" id="dniInput" style="font-size: 2.2em;"required placeholder="Introduce el DNI">
+
+            </div>
+            <div class="form-group col-md-6">
+                <button id="fetchDatesButton"  type="submit" style="font-size: 2.2em; padding: 20px 40px;"  class="btn btn-primary  btn-block "">Obtener Fechas</button>
+            </div>
+        </div>
+    
+        <br><br>
+
+        <table id="resultadob" class="table table-striped table-bordered">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Id Android</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th><b><span id="DNI" class="ctext"></span></b></th>
+                    <th><b><span id="Nombre" class="ctext"></span></b></th>
+                    <th><b><span id="Apellido" class="ctext"></span></b></th>
+                    <th><b><span id="Mac" class="ctext"></span></b></th>
+                </tr>
+    
+            </thead>
+        </table>
+
+
+
+        <div id="alerta1" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+            <span id="1"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <br><br>
+        </div>
+
+
+
+        <h2 class="text-center Ctext-b">Agregar Alumno</h2>
+        <form id="postForm" class="mb-4">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="number" class="form-control" id="dniPost" required placeholder="Introduce el DNI">
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="nombrePost" required placeholder="Introduce el Nombre">
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="apellidoPost" required placeholder="Introduce el Apellido">
+                </div>
+               
+            </div>
+            <button type="button" class="btn btn-success btn-block" onclick="PostRequest()">AGREGAR</button>
+        </form>
+
+        <br><br>
+
+        <div id="alerta2" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+            <span id="2"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <br><br>
+        </div>
+
+        <h2 class="text-center Ctext-b">Actualizar Alumno</h2>
+        <form id="putFormA" class="mb-4">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="number" class="form-control" id="dniPutA" required placeholder="Introduce el DNI">
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="nombrePutA" required placeholder="Introduce el Nombre">
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="apellidoPutA" required placeholder="Introduce el Apellido">
+                </div>
+            
+            </div>    
+                
+            <button type="button" class="btn btn-warning btn-block" onclick="AlumnoPutRequest()">ACTUALIZAR</button>
+        </form>
+
+            
+        <br><br>
+        <div id="alerta3" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+            <span id="3"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <br><br>
+        </div>
+
+
+        <h2 class="text-center Ctext-b">Remover Alumno</h2>
+        <form id="deleteForm" class="mb-4">
+            <div class="form-group">
+                <input type="number" class="form-control" id="dniDelete" required placeholder="Introduce el DNI">
+            </div>
+            <button type="button" class="btn btn-danger btn-block" onclick="DeleteRequest()">REMOVER</button>
+        </form>
+    </body>
+</html>
+

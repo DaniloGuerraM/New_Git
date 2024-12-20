@@ -2,7 +2,7 @@ $(function () {
     let highlightedDates = []; // Array para almacenar las fechas a resaltar
 
     // Inicializa el calendario
-    $("#datepicker").datepicker({
+    $("#dniInput").datepicker({
         regional: "Es",
         showOn: "button",
         buttonImage: "../assets/image/calendario.jpg",
@@ -100,3 +100,5 @@ $(function () {
             });
     });
 });
+
+

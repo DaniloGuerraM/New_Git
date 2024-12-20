@@ -1,0 +1,17 @@
+body {
+    background-image: url('../image/001.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
+.Ctext-primary {
+    color: #75b3f5; /* Azul */
+}
+.Ctext-success {
+    color: antiquewhite; /* Verde */
+}.Tamaño-Text{
+    font-size: 60px;
+}.Tamaño-Text2{
+    font-size: 40px;
+}

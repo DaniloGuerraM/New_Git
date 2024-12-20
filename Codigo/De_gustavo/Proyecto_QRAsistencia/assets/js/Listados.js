@@ -11,25 +11,11 @@ function obtenerDatos() {
             return response.json();
         })
         .then(data => {
-            const resultadoTable = document.getElementById('resultado').querySelector('tbody');
             const totalAlumnos = document.getElementById('totalAlumnos');
-            resultadoTable.innerHTML = ''; // Limpiar cualquier contenido previo
-
-            // Mostrar el número total de alumnos
+            
             totalAlumnos.textContent = data.length;
 
-            // Construir una fila para cada alumno
-            data.forEach(alumno => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${alumno.dni}</td>
-                    <td>${alumno.nombre}</td>
-                    <td>${alumno.apellido}</td>
-                    <td>${alumno.mac || 'No disponible'}</td>
-                `;
-                resultadoTable.appendChild(row);
-            });
-        })
+            })
         .catch(error => {
             console.error('Error:', error);
             alert('Error al obtener los datos');

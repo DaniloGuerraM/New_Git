@@ -76,45 +76,6 @@ function DeleteRequest() {
         mostrarAlerta('Error al Remover');
     });
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-function PutRequest() {
-    const dni = parseInt(document.getElementById('dniPut').value, 10);
-    const idAndroid = document.getElementById('idAndroidPut').value;
-
-    const data = {
-        dni: dni,
-        mac: idAndroid
-    };
-
-    const url = "http://77.81.230.76:5095/api/Alumno/mac";
-
-    fetch(url, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-            return response.json();
-        } else {
-            return response.text();
-        }
-    })
-    .then(data => {
-        console.log('Respuesta del servidor:', data);
-        //alert(`Solicitud PUT exitosa: ${typeof data === 'string' ? data : JSON.stringify(data)}`);
-        mostrarAlerta('Actualizado con exito');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        //alert(`Error en solicitud PUT: ${error.message}`);
-        mostrarAlerta('Error al Actualizar');
-    });
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 function AlumnoPutRequest() {

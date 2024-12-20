@@ -29,8 +29,9 @@ function obtenerAsistencia(event) {
 				//const date = moment.unix(alumno.fecha).format("DD/MM/YYYY");
 				//date.toDateString();
 				row.innerHTML = `
+                    <td>${date.getFullYear()}</td>
 					<td>${date.toLocaleTimeString()}</td>
-					<td>${date.getFullYear()}</td>
+					
 				`;
 				//<td>${alumno.idRegistro}</td>
 				//<td>${alumno.alumnoDNI}</td>
