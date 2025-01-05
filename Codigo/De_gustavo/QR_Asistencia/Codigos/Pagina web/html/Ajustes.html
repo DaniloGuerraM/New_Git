@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script src="../assets/js/Ajuste.js"></script>
+    <script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+
+    <style>
+           body {
+                background-image: url('../assets/image/003.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat; 
+                background-attachment: fixed; 
+            }.Ctext-b{
+                color :rgb(0, 0, 0);
+            }
+    </style>
+</head>
+<body class="container mt-4">
+
+    <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+        <span id="alertaMensaje"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="text-right">
+        <a href="Inicio.html" style="font-size: 1.5em; padding: 20px 40px;" class="btn btn-danger">Volver</a>
+    </div>
+    
+    <h2 class="text-center Ctext-b">Agregar Alumno</h2>
+    <form id="postForm" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <input type="number" class="form-control" id="dniPost" required placeholder="Introduce el DNI">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="nombrePost" required placeholder="Introduce el Nombre">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="apellidoPost" required placeholder="Introduce el Apellido">
+            </div>
+           
+        </div>
+        <button type="button" class="btn btn-success btn-block" onclick="PostRequest()">AGREGAR</button>
+    </form>
+    
+
+    <h2 class="text-center Ctext-b">Actualizar Alumno</h2>
+    <form id="putFormA" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <input type="number" class="form-control" id="dniPutA" required placeholder="Introduce el DNI">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="nombrePutA" required placeholder="Introduce el Nombre">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="apellidoPutA" required placeholder="Introduce el Apellido">
+            </div>
+           
+        </div>    
+            
+        <button type="button" class="btn btn-warning btn-block" onclick="AlumnoPutRequest()">ACTUALIZAR</button>
+    </form>
+
+
+    <h2 class="text-center Ctext-b">Remover Alumno</h2>
+    <form id="deleteForm" class="mb-4">
+        <div class="form-group">
+            <input type="number" class="form-control" id="dniDelete" required placeholder="Introduce el DNI">
+        </div>
+        <button type="button" class="btn btn-danger btn-block" onclick="DeleteRequest()">REMOVER</button>
+    </form>
+
+   
+
+</body>
+</html>

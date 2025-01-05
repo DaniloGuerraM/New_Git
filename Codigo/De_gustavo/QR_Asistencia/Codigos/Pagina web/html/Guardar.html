@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script src="../assets/js/Ajuste.js"></script>
+    <script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+
+</head>
+<body class="container mt-4">
+
+    <h2 class="text-center">Buscar Alumno</h2>
+    <form onsubmit="obtenerAlumno(event)" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <!--label for="dniGet">DNI:</label-->
+                <input type="number" class="form-control" id="dniGet" required placeholder="Introduce el DNI">
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary btn-block">Obtener Datos</button>
+            </div>
+        </div>
+        
+    </form>
+
+    <table id="resultadob" class="table table-striped table-bordered">
+        <thead class="thead">
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>MAC</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th><b><span id="DNI"></span></b></th>
+                <th><b><span id="Nombre"></span></b></th>
+                <th><b><span id="Apellido"></span></b></th>
+                <th><b><span id="Mac"></span></b></th>
+            </tr>
+
+        </thead>
+    </table>
+
+
+    <h2 class="text-center">Registrar Alumno</h2>
+    <form id="postForm" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="dniPost">DNI:</label>
+                <input type="number" class="form-control" id="dniPost" required placeholder="Introduce el DNI">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="nombrePost">Nombre:</label>
+                <input type="text" class="form-control" id="nombrePost" required placeholder="Introduce el Nombre">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="apellidoPost">Apellido:</label>
+                <input type="text" class="form-control" id="apellidoPost" required placeholder="Introduce el Apellido">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="macPost">MAC:</label>
+                <input type="text" class="form-control" id="macPost" required>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success btn-block" onclick="PostRequest()">Enviar POST</button>
+    </form>
+    
+
+    <h2 class="text-center">Actualizar Alumno</h2>
+    <form id="putFormA" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="dniPutA">DNI:</label>
+                <input type="number" class="form-control" id="dniPutA" required placeholder="Introduce el DNI">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="nombrePutA">Nombre:</label>
+                <input type="text" class="form-control" id="nombrePutA" required placeholder="Introduce el Nombre">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="apellidoPutA">Apellido:</label>
+                <input type="text" class="form-control" id="apellidoPutA" required placeholder="Introduce el Apellido">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="macPutA">MAC:</label>
+                <input type="text" class="form-control" id="macPutA" required>
+            </div>
+        </div>    
+            
+        <button type="button" class="btn btn-warning btn-block" onclick="AlumnoPutRequest()">Enviar PUT</button>
+    </form>
+
+    <h2 class="text-center">Actualizar datos</h2>
+    <form id="putForm" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dniPut">DNI:</label>
+                <input type="number" class="form-control" id="dniPut" required placeholder="Introduce el DNI">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="idAndroidPut">ID Android:</label>
+                <input type="text" class="form-control" id="idAndroidPut" required >
+            </div>
+        </div>
+        <button type="button" class="btn btn-warning btn-block" onclick="PutRequest()">Enviar PUT</button>
+    </form>
+
+    <h2 class="text-center">Eliminar Alumno</h2>
+    <form id="deleteForm" class="mb-4">
+        <div class="form-group">
+            <label for="dniDelete">DNI:</label>
+            <input type="number" class="form-control" id="dniDelete" required placeholder="Introduce el DNI">
+        </div>
+        <button type="button" class="btn btn-danger btn-block" onclick="DeleteRequest()">Eliminar</button>
+    </form>
+
+   
+    <div class="text-right">
+        <a href="Inicio.html" style="font-size: 1.5em; padding: 20px 40px;" class="btn btn-danger">Volver</a>
+    </div>
+    
+
+</body>
+</html>
